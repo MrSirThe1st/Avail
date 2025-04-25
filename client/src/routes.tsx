@@ -27,7 +27,7 @@ const ProtectedRoute: React.FC<{ element: React.ReactNode }> = ({
 
   // Redirect to sign-in if not authenticated
   if (!isSignedIn) {
-    return <Navigate to="/sign-in" replace />;
+    return <Navigate to="/sign-in" />;
   }
 
   return <>{element}</>;
@@ -37,17 +37,17 @@ const AppRoutes: React.FC = () => {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Auth routes */}
-        <Route path="/sign-in" element={<SignInPage />} />
-        <Route path="/sign-up" element={<SignUpPage />} />
-        <Route path="/reset-password" element={<ResetPasswordPage />} />
-        <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+        {/* Public auth routes */}
+        <Route path="/sign-in/*" element={<SignInPage />} />
+        <Route path="/sign-up/*" element={<SignUpPage />} />
+        <Route path="/reset-password/*" element={<ResetPasswordPage />} />
+        <Route path="/forgot-password/*" element={<ForgotPasswordPage />} />
 
         {/* Protected routes */}
         <Route path="/" element={<ProtectedRoute element={<HomePage />} />} />
 
         {/* Catch all - redirect to home */}
-        <Route path="*" element={<Navigate to="/" replace />} />
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </BrowserRouter>
   );
