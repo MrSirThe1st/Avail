@@ -1,54 +1,81 @@
-# React + TypeScript + Vite
+# Avail: Real-Time Availability Display Solution
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Product Overview
 
-Currently, two official plugins are available:
+Avail is a streamlined solution that allows organizations to display real-time availability to clients without requiring complex booking infrastructure. The system provides two flexible deployment options to meet diverse business needs.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Deployment Methods
 
-## Expanding the ESLint configuration
+### 1. Website Widget
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+An embeddable component that organizations can add to their existing websites with a simple code snippet. The widget displays real-time availability directly on the organization's website.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+**Key Features:**
+- One-line installation with customizable appearance
+- Real-time calendar synchronization
+- Mobile responsive design
+- Clear call-to-action buttons for booking/contact
+- Seamless integration with existing websites
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2. Standalone Availability Page
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+A dedicated page accessible via a direct link (similar to Linktree) for sharing on social media, email signatures, or anywhere a direct website embed isn't possible.
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+**Key Features:**
+- Custom branded URL (username.avail.com)
+- Shareable link for social media profiles
+- No website required for the organization
+- Analytics tracking
+
+## Calendar Integration
+
+The solution synchronizes with existing calendar and scheduling systems:
+- Google Calendar
+- Microsoft Outlook/365
+- Apple Calendar
+- Popular scheduling tools (Calendly, Acuity, etc.)
+
+## Value Proposition
+
+**For Organizations:**
+- Reduce scheduling friction
+- Save time on back-and-forth communications
+- Increase conversion by showing real-time availability
+
+**For Clients:**
+- Get instant visibility into available time slots before initiating contact
+
+## Technical Stack
+
+### Core Technologies
+- **MERN Stack**: MongoDB, Express.js, React, and Node.js Typescript
+- **Authentication**: Auth0
+- **Frontend**: Shadcn/UI components built on Radix UI with Tailwind CSS
+- **API**: RESTful API with comprehensive documentation
+- **Real-time Updates**: WebSocket integration for live availability
+- **Caching**: Redis for performance optimization
+
+### Development Tools
+- ESLint + Prettier: Code quality and formatting
+- GitHub Copilot: AI-assisted development
+- NPM: Package management
+- Console-ninja: Enhanced debugging
+
+## Development Roadmap
+
+The project aims for an initial working prototype within 2 weeks, focusing on core functionality:
+
+1. Calendar connection and synchronization
+2. Basic widget display component
+3. Authentication and user management
+4. Standalone page functionality
+5. UI refinement and customization options
+6. Testing and deployment
+
+## Target Industries
+
+While the solution is versatile enough for any appointment-based business, initial focus will be on:
+- Professional services (consultants, advisors)
+- Personal services (salons, coaches)
+- Healthcare practices
+- Educational services
