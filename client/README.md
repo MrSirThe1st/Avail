@@ -79,3 +79,112 @@ While the solution is versatile enough for any appointment-based business, initi
 - Personal services (salons, coaches)
 - Healthcare practices
 - Educational services
+
+System Overview - Revised
+Avail will function as a read-only display layer that connects to existing calendar/scheduling systems:
+
+Organization dashboard - Where businesses connect calendars and configure display settings
+Public-facing displays - Where clients view (but cannot modify) availability
+
+Core Functionality Flow - Revised
+
+Organizations sign up and connect their calendars (read-only access)
+They configure how their availability should be displayed
+They receive embed code or a custom link to share
+Clients view current availability through these interfaces
+The system automatically reflects changes made in the original calendar system
+
+Key Pages & Components - Revised
+For Organizations (Admin Side)
+
+Authentication Pages
+
+Sign Up
+Sign In
+Password Reset
+
+
+Calendar Connection
+
+OAuth integration with various calendar providers
+Read-only permission scopes
+Connection status monitoring
+
+
+Display Configuration
+
+Time window settings (how far ahead to show)
+Availability format (specific times vs. general availability)
+Business hours definition
+Busy/Available threshold settings
+
+
+Appearance Settings
+
+Widget customization (size, colors, text)
+Standalone page branding
+Mobile appearance options
+
+
+Integration
+
+Embed code generator
+Direct link management
+QR code generation for offline sharing
+
+
+Basic Analytics
+
+View counts
+Traffic sources
+User location data
+
+
+
+For Clients (Public-Facing)
+
+Widget Component
+
+Simple availability indicator
+Potentially expandable for more details
+"Contact" or "Learn More" CTA (not direct booking)
+
+
+Standalone Availability Page
+
+Organization branding
+Current availability status
+Contact information
+Optional: upcoming availability overview
+
+
+
+User Flows - Revised
+Organization Flow
+
+Sign up → Connect calendar (read-only)
+Configure display settings → Get embed code/link
+Share link or add widget to website
+
+Client Flow
+
+View availability indicator
+Use existing channels to contact the organization if they're available
+
+Technical Considerations - Revised
+Calendar Integration
+
+Read-only API access to multiple calendar systems
+Regular polling for updates
+Caching strategy to minimize API calls
+
+Privacy and Security
+
+No access to calendar event details, just busy/free status
+Appropriate scoping of OAuth permissions
+Transparency about what data is accessed
+
+Display Flexibility
+
+Configurable levels of detail (just "available/busy" vs. specific hours)
+Timezone intelligence for global clients
