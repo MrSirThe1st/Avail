@@ -7,6 +7,7 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Dependencies and build
 node_modules
 dist
 dist-ssr
@@ -25,7 +26,28 @@ dist-ssr
 
 # dotenv environment variable files
 .env
+.env.development
+.env.test
+.env.production
 .env.development.local
 .env.test.local
 .env.production.local
 .env.local
+
+# Server-specific
+coverage/
+.nyc_output/
+tmp/
+temp/
+uploads/
+.serverless/
+
+# Database files
+*.sqlite
+*.db
+*.sql
+
+# Certificates and keys
+*.pem
+*.key
+*.cert
