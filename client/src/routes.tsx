@@ -8,6 +8,9 @@ import SignUpPage from "./pages/auth/sign-up";
 import ResetPasswordPage from "./pages/auth/reset-password";
 import ForgotPasswordPage from "./pages/auth/forgot-password";
 import CalendarConnectionsPage from "./pages/dashboard/calendar-connections";
+import AvailabilitySettingsPage from "./pages/dashboard/availability-settings";
+import WidgetPreviewPage from "./pages/dashboard/widget-preview";
+import StandaloneAvailabilityPage from "./pages/public/availability";
 
 // Protected route component
 const ProtectedRoute: React.FC<{ element: React.ReactNode }> = ({
@@ -28,7 +31,6 @@ const ProtectedRoute: React.FC<{ element: React.ReactNode }> = ({
 
   // Redirect to sign-in if not authenticated
   if (!isSignedIn) {
-
     return <Navigate to="/sign-in" />;
   }
 
@@ -45,11 +47,25 @@ const AppRoutes: React.FC = () => {
         <Route path="/reset-password/*" element={<ResetPasswordPage />} />
         <Route path="/forgot-password/*" element={<ForgotPasswordPage />} />
 
-        {/* Protected routes */}
+        {/* Public availability page */}
+        <Route
+          path="/availability/:userId"
+          element={<StandaloneAvailabilityPage />}
+        />
+
+        {/* Protected dashboard routes */}
         <Route path="/" element={<ProtectedRoute element={<HomePage />} />} />
         <Route
           path="/dashboard/calendars"
           element={<ProtectedRoute element={<CalendarConnectionsPage />} />}
+        />
+        <Route
+          path="/dashboard/availability-settings"
+          element={<ProtectedRoute element={<AvailabilitySettingsPage />} />}
+        />
+        <Route
+          path="/dashboard/widget"
+          element={<ProtectedRoute element={<WidgetPreviewPage />} />}
         />
 
         {/* Catch all - redirect to home */}
