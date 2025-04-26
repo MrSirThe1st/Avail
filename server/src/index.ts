@@ -5,6 +5,8 @@ import helmet from "helmet";
 import { clerkMiddleware } from "@clerk/express";
 import connectDB from "./config/db";
 import userRoutes from "./routes/user-routes";
+import calendarRoutes from "./routes/calendar-routes";
+import availabilityRoutes from "./routes/availability-routes";
 
 // Load environment variables
 dotenv.config();
@@ -33,8 +35,10 @@ app.get("/api", (req, res) => {
   res.json({ message: "Welcome to Avail API" });
 });
 
-// User routes
+//routes
 app.use("/api/users", userRoutes);
+app.use("/api/calendars", calendarRoutes);
+app.use("/api/availability", availabilityRoutes);
 
 // Global error handling middleware
 const errorHandler: ErrorRequestHandler = (err, req, res, next): void => {

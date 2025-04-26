@@ -7,6 +7,7 @@ import SignInPage from "./pages/auth/sign-in";
 import SignUpPage from "./pages/auth/sign-up";
 import ResetPasswordPage from "./pages/auth/reset-password";
 import ForgotPasswordPage from "./pages/auth/forgot-password";
+import CalendarConnectionsPage from "./pages/dashboard/calendar-connections";
 
 // Protected route component
 const ProtectedRoute: React.FC<{ element: React.ReactNode }> = ({
@@ -27,6 +28,7 @@ const ProtectedRoute: React.FC<{ element: React.ReactNode }> = ({
 
   // Redirect to sign-in if not authenticated
   if (!isSignedIn) {
+
     return <Navigate to="/sign-in" />;
   }
 
@@ -45,6 +47,10 @@ const AppRoutes: React.FC = () => {
 
         {/* Protected routes */}
         <Route path="/" element={<ProtectedRoute element={<HomePage />} />} />
+        <Route
+          path="/dashboard/calendars"
+          element={<ProtectedRoute element={<CalendarConnectionsPage />} />}
+        />
 
         {/* Catch all - redirect to home */}
         <Route path="*" element={<Navigate to="/" />} />
